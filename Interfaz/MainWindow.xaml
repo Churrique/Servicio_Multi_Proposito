@@ -1,0 +1,129 @@
+﻿<Window x:Class="Interfaz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Interfaz"
+        mc:Ignorable="d"
+        Title="Interfaz Gráfica del Servicio" Height="348.482" Width="800" WindowStartupLocation="CenterScreen" Background="White" Icon="Img/1487716856-user-help_81637.png">
+    <Window.Resources>
+        <Storyboard x:Key="Storyboard1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="imgDestino">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="20"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="40"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="80"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="100"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="120"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="140"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="160"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="180"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="220"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="240"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="260"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="280"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="300"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="340"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="360">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Storyboard2">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="imgFuente">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.99"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0.45"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0.6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="imgDestino">
+            <BeginStoryboard x:Name="Storyboard1_BeginStoryboard" Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="imgFuente">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Margin="0,0,0,4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Margin="0,10,0,0" Height="57" VerticalAlignment="Top">
+            <TextBlock x:Name="txtBlkDescripcion" Margin="10,10,0,0" TextWrapping="Wrap" Text="A continuación indique que desea hacer con el servicio (Configuración Base):" VerticalAlignment="Top" Cursor="Hand" ToolTip="A continuación indique que desea hacer con el servicio (Configuración Base):..." FontSize="14" FontWeight="Bold" FontStyle="Italic" FontFamily="Calibri" HorizontalAlignment="Left" Width="447.788"/>
+            <ComboBox x:Name="cboIdioma" HorizontalAlignment="Right" Height="25.245" Margin="0,0,86.66,0" Width="187.298" FontSize="14" FontWeight="Bold" FontStyle="Italic" FontFamily="Calibri" Cursor="Hand">
+                <ComboBoxItem Content="Español"/>
+                <ComboBoxItem Content="Ingles"/>
+                <ComboBoxItem Content="Checo"/>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Margin="0,54,0,0" Grid.ColumnSpan="2" Height="59" VerticalAlignment="Top">
+            <RadioButton IsChecked="True" HorizontalAlignment="Left" Margin="20,0,0,0" Content="Eliminar un Directorio" Width="147" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+            <RadioButton HorizontalAlignment="Left" Margin="20,0,0,0"  Content="Copiar un Directorio" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Width="147"/>
+            <RadioButton HorizontalAlignment="Left" Margin="20,0,0,0"  Content="Mover un Directorio" Width="147" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+        </StackPanel>
+        <Grid x:Name="grid1" Height="108.985" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Margin="0,0,0,143.015" RenderTransformOrigin="0.5,0.5">
+            <TextBlock x:Name="txtBlkFuente" HorizontalAlignment="Left" Margin="20,102,0,-15" TextWrapping="Wrap" Text="Indique la Fuente:" VerticalAlignment="Top" Cursor="Hand" ToolTip="...desde que directorio..." FontSize="14" FontWeight="Bold" FontStyle="Italic" FontFamily="Calibri" Height="18"/>
+            <TextBox x:Name="txtFuente" TextWrapping="Wrap" Text="...Indique el directorio fuente..." Margin="10,125,95,-55" FontFamily="Calibri" FontWeight="Bold" ToolTip="...indique el directorio desde dónde va a empezar a copiar o mover..."/>
+            <Button x:Name="btnOpenFFolder" Cursor="Hand" Background="{x:Null}" BorderThickness="0" Margin="702,92.474,10,-75.486" Height="91.997" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="BtnOpenFFolder_Click">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock x:Name="txtBlkFBuscar" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Buscar" Cursor="Hand" ToolTip="Buscar..." FontSize="14" FontWeight="Bold" FontStyle="Italic" FontFamily="Calibri" Height="13"/>
+                    <Image x:Name="imgFuente" Source="C:\Users\jesus\Google Drive\Programmer\ServicioMultiPropósito\Interfaz\Img\openfile_11188.png" Width="50" Height="53.985" ToolTip="...click con el mouse para abrir el diálogo de busqueda..."/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnProcesar" Content="Procesar" HorizontalAlignment="Right" Margin="0,51.516,90,10" Width="118.556" ToolTip="...click con el mouse para iniciar el proceso..." BorderBrush="#FF0877FB" FontSize="14" FontWeight="Bold" FontStyle="Italic" FontFamily="Calibri" Foreground="#FF14D0EE">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1277F0" Offset="1"/>
+                        <GradientStop Color="#FF0F223A" Offset="0.004"/>
+                        <GradientStop Color="#FF062F60" Offset="0.377"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <TextBlock x:Name="txtBlkDAEliminar" HorizontalAlignment="Left" Margin="20,48.518,0,40.467" TextWrapping="Wrap" Text="Directorio a Eliminar:" Width="175" FontWeight="Bold" FontStyle="Italic" FontFamily="Calibri" FontSize="14"/>
+        </Grid>
+        <Grid x:Name="grid" Grid.ColumnSpan="2" Height="207.996" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="0,131.486,0,-26">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="31*"/>
+                <ColumnDefinition Width="57*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="txtBlkDestino" HorizontalAlignment="Left" Margin="20,101,0,88" TextWrapping="Wrap" Text="Indique el Destino:" Cursor="Hand" ToolTip="...hacia que directorio..." FontSize="14" FontWeight="Bold" FontStyle="Italic" FontFamily="Calibri"/>
+            <TextBox x:Name="txtDestino" Height="39" TextWrapping="Wrap" Text="...Indique el directorio destino..." Margin="10,125,95,0" FontWeight="Bold" FontFamily="Calibri" VerticalAlignment="Top" ToolTip="...indique el directorio hacia dónde va a copiar o mover..." Grid.ColumnSpan="2"/>
+            <Button x:Name="btnOpenDFolder" Cursor="Hand" Margin="423,93,10,28.252" Background="{x:Null}" BorderThickness="0" RenderTransformOrigin="0.5,0.5" Click="BtnOpenDFolder_Click" Grid.Column="1">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock x:Name="txtBlkDBuscar" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Buscar" Cursor="Hand" ToolTip="Buscar..." FontSize="14" FontWeight="Bold" FontStyle="Italic" FontFamily="Calibri"/>
+                    <Image x:Name="imgDestino" Source="C:\Users\jesus\Google Drive\Programmer\ServicioMultiPropósito\Interfaz\Img\openfile_11188.png" Width="50" Height="50" RenderTransformOrigin="0.5,0.5" ToolTip="...click con el mouse para abrir el diálogo de busqueda...">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </StackPanel>
+            </Button>
+            <TextBox x:Name="txtDAEliminar" Height="21" Margin="10,3.514,-166,0" TextWrapping="Wrap" Text="...Directorio a eliminar..." VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold"/>
+        </Grid>
+    </Grid>
+</Window>
